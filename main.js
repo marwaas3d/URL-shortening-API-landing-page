@@ -2,19 +2,7 @@
         let linkinput = document.getElementById("link");
         let errMsg = document.getElementById("errMsg");
 
-        shortenBtn.addEventListener("click",function(){
-            if(linkinput.value.length <= 0){
-                linkinput.style.border = "3px solid hsl(0, 87%, 67%)"
-                let style = document.createElement("style");
-                style.innerHTML = `
-                input::placeholder {
-                    color: hsl(0, 87%, 67%) !important;
-                }
-                `;
-                document.head.appendChild(style);
-                errMsg.style.display = "block"
-            }
-        })
+
 /*********************************************FETCH API*************************************** */
 let results = document.getElementById("results");
 
@@ -24,18 +12,29 @@ shortenBtn.addEventListener("click", function(){
         const longUrl = linkinput.value.trim();
         const encodedUrl = encodeURIComponent(longUrl);
 
+            const border = window.getComputedStyle(linkinput).border;
+            // console.log(border);
+
+            if (border.includes("2.4px solid") && border.includes("rgb(244, 98, 98)")) {
+                linkinput.style.border = "none";
+
+                const styles = document.querySelectorAll("style");
+                styles.forEach((s) => {
+                    if (s.innerHTML.includes("input::placeholder") && s.innerHTML.includes("hsl(0, 87%, 67%)")) {
+                        s.remove();
+                    }
+                });
+
+                errMsg.style.display = "none";
+            }
+
+
   fetch(`https://is.gd/create.php?format=json&url=${encodedUrl}`)
     .then(res => res.json())
     .then(data => {
          console.log(data)
 
          if(data.shorturl){
-            shortenBtn.setAttribute("disabled","disabled")
-            linkinput.addEventListener("input", function() {
-              if (linkinput.value.trim().length === 0) {
-                  shortenBtn.removeAttribute("disabled");
-                }})
-            
 
             let resultDiv = document.createElement("div");
             resultDiv.setAttribute("class","result p-3 rounded-2 mb-3");
@@ -76,9 +75,10 @@ shortenBtn.addEventListener("click", function(){
             insideSeconDiv.appendChild(button)
 
             results.appendChild(resultDiv)
+            linkinput.value=""
+            shortenBtn.removeAttribute("disabled");
 
-
-
+            
             let copy = document.getElementById("copy");
             copy.addEventListener("click",function(){
                 navigator.clipboard.writeText(span.innerHTML)
@@ -86,8 +86,21 @@ shortenBtn.addEventListener("click", function(){
                 copy.style.setProperty("background-color", "hsl(257, 27%, 26%)", "important");
                 copy.innerHTML = "Copied!"
             })
+
          }
+
+
     })
-    }  
+    }  else if(linkinput.value.length <= 0){
+                linkinput.style.border = "3px solid hsl(0, 87%, 67%)"
+                let style = document.createElement("style");
+                style.innerHTML = `
+                input::placeholder {
+                    color: hsl(0, 87%, 67%) !important;
+                }
+                `;
+                document.head.appendChild(style);
+                errMsg.style.display = "block"
+            }
 
 })
