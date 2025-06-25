@@ -1,4 +1,5 @@
 # Frontend Mentor - Shortly URL shortening API Challenge
+repo: https://marwaas3d.github.io/URL-shortening-API-landing-page/
 
 ![Design preview for the Shortly URL shortening API coding challenge](./design/desktop-preview.jpg)
 
