@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+:root{
+    --Cyan: hsl(180, 66%, 49%);
+    --Dark-Violet: hsl(257, 27%, 26%);
+    --Red: hsl(0, 87%, 67%);
+    --Gray: hsl(0, 0%, 75%);
+    --Grayish-Violet: hsl(257, 7%, 63%);
+    --Very-Dark-Blue: hsl(255, 11%, 22%);
+    --Very-Dark-Violet: hsl(260, 8%, 14%);
+}
+body{
+    min-height: 100vh;
+    position: relative;
+}
+
+.background{
+    position: absolute;
+    top: 85vh;
+    background-color: rgb(239 241 247);
+    height: 85vh;
+    width: 100%;
+    z-index: -1;
+}
+::selection{
+    background-color: var(--Dark-Violet);
+    color: white;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--Cyan);
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+
+/***************************************navbar start*****************************************/
+.nav-link{
+    color: var(--Grayish-Violet);
+}
+.btn{
+    background-color: var(--Cyan);
+}
+.btn:hover{
+    background-color: hsl(180deg 66% 49% / 46%) !important;
+}
+
+@media (max-width:992px){
+    .navbar-collapse{
+        background-color: var(--Dark-Violet);
+        padding: 30px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
+    .navbar-collapse a{
+        color: white !important;
+    }
+    .navbar-collapse hr{
+      border-color:  white !important;
+    }
+    .navbar-collapse .btn{
+        width: 100%;
+        display: block;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    .btnholder{
+        width: 100%;
+    }
+    .btnholder > div{
+        width: 100%;
+    }
+}
+/***************************************navbar end*****************************************/
+/***************************************header start*****************************************/
+
+.content h1{
+    font-size: 70px;
+}
+@media (max-width: 786px){
+    .content h1{
+        font-size: 40px;
+    }
+}
+.content p{
+    color: var(--Grayish-Violet);
+    font-size: 18px;
+    max-width: 31rem;
+    width: 100%;
+}
+@media (max-width: 786px){
+    .content p{
+        font-size: 14px;
+    }
+}
+/***************************************header end*****************************************/
+
+/***************************************search start*****************************************/
+.search{
+    background-color: var(--Dark-Violet);
+    background-image: url(./images/bg-shorten-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: 100% ;
+    position: relative;
+}
+@media(max-width : 786px){
+    .search{
+        height: 211px;
+        background-image: url(./images/bg-shorten-mobile.svg);
+    }
+}
+
+.input::placeholder{
+    color: var(--Grayish-Violet);
+    font-weight: 500;
+}
+
+@media(max-width:786px){
+    .input{
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+    .searchBtn{
+        width: 100% !important;
+    }
+}
+
+span.link{
+    color: var(--Cyan);
+}
+
+.errMsg{
+    color: var(--Red);
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    font-style: italic;
+}
+@media (max-width: 786px){
+    .errMsg{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767.98px) {
+  .copy {
+    width: 100%;
+  }
+    .parent-class {
+    width: 100%;
+  }
+}
+
+/***************************************search end*****************************************/
+
+
+/***************************************advanced start*****************************************/
+.advanced{
+    margin-top: 150px;
+}
+.advanced p{
+    color: var(--Grayish-Violet);
+}
+.cards{
+    margin-top: 100px;
+    position: relative;
+}
+
+.cards::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 9px;
+    background-color: var(--Cyan);
+    top: 50%;
+}
+@media(max-width: 992px){
+    .cards::before{
+    height: 97%;
+    width: 9px;
+    left: calc(50% + 40px);
+    top: 0%;
+}
+}
+
+@media(min-width: 1215px){
+    .cards::before{
+        width: 83%;
+}
+}
+
+
+
+
+.card{
+    min-height: 240px;
+    position: relative;
+}
+
+.card::after{
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: var(--Dark-Violet);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    left: 40px;
+    top: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card:nth-of-type(1)::after{
+    content: url(./images/icon-brand-recognition.svg);
+}
+.card:nth-of-type(2)::after{
+    content: url(./images/icon-detailed-records.svg);
+}
+.card:nth-of-type(3)::after{
+    content: url(./images/icon-fully-customizable.svg);
+}
+
+@media(max-width:992px){
+    .card::after{
+        left: 50%;
+    }
+}
+@media(max-width: 473px){
+    .card::after{
+        left: 50%;
+    }
+}
+
+
+.card p{
+    max-width: 19.5rem;
+}
+
+@media (min-width:992px){
+    .cards div:nth-of-type(2){
+    transform: translateY(40px);
+    -webkit-transform: translateY(40px);
+    -moz-transform: translateY(40px);
+    -ms-transform: translateY(40px);
+    -o-transform: translateY(40px);
+}
+
+.cards div:nth-of-type(3){
+    transform: translateY(80px);
+    -webkit-transform: translateY(80px);
+    -moz-transform: translateY(80px);
+    -ms-transform: translateY(80px);
+    -o-transform: translateY(80px);
+}
+}
+
+@media (max-width:467px){
+    .cards::before{
+       left: calc(40% + 40px);
+    }
+}
+
+@media (max-width:467px){
+    .card::after{
+       left: 39%;
+    }
+}
+/***************************************advanced end*****************************************/
+
+/***************************************BOOST start*****************************************/
+.boost{
+    margin-top: 150px;
+    background-color: var(--Dark-Violet);
+    background-image: url(./images/bg-boost-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (max-width: 786px){
+    .boost{
+    margin-top: 80px;
+    }
+}
+/***************************************BOOST end*****************************************/
+
+
+/***************************************FOOTER start*****************************************/
+footer{
+   background-color: var(--Very-Dark-Violet);
+}
+
+footer p{
+    font-size: 14px;
+    color: var(--Gray);
+    font-weight:500;
+}
+/***************************************FOOTER end*****************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
