@@ -25,7 +25,7 @@ body{
     position: absolute;
     top: 85vh;
     background-color: rgb(239 241 247);
-    height: 70%;
+    height: 70% ;
     width: 100%;
     z-index: -1;
 }
